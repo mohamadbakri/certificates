@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+        <record id="certificates_certificate_tree_view" model="ir.ui.view">
+            <field name="name">Certificates Certificate Tree View</field>
+            <field name="model">certificates.certificate</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="serial_number"/>
+                    <field name="vehicle_type"/>
+                    <field name="certificate_type"/>
+                    <field name="traffic_department"/>
+                    <field name="customer"/>
+                    <field name="car_model"/>
+                    <field name="brand"/>
+                    <field name="price"/>
+                </tree>
+            </field>
+        </record>
+        <record id="certificates_certificate_form_view" model="ir.ui.view">
+            <field name="name">Certificates Certificate Form View</field>
+            <field name="model">certificates.certificate</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="print_report" type="object" class="oe_highlight" string="Print Certificate"/>
+                        <button name="allow_reprint_report" type="object" class="oe_highlight" string="Allow Reprint" groups="certificates.certificates_supervisors_group"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="vehicle_type"/>
+                                <field name="certificate_type"/>
+                                <field name="traffic_department"/>
+                                <field name="customer"/>
+                                <field name="price"/>
+                            </group>
+                            <group>
+                                <field name="motor_number"/>
+                                <field name="chassis_number"/>
+                                <field name="car_model"/>
+                                <field name="brand"/>
+                            </group>
+                        </group>
+                         <notebook>
+                            <page string="Certificate Printing Log History">
+                                <field name="print_log_history_ids">
+                                    <tree>
+                                        <field name="create_uid" string="Certificate Printed By"/>
+                                        <field name="create_date" string="Certificate Printed On"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="certificates_certificate_action" model="ir.actions.act_window">
+            <field name="name">Certificate</field>
+            <field name="res_model">certificates.certificate</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="certificates_certificate_root_menu" name="Certificates App"
+                  action="certificates_certificate_action"/>
+
+        <menuitem id="certificates_certificate_certificates_menu" name="Certificates"
+                  parent="certificates_certificate_root_menu"   action="certificates_certificate_action"/>
+    </data>
+</odoo>

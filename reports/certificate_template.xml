@@ -1,0 +1,144 @@
+<odoo>
+    <data>
+        <template id="certificates_certificate_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="cer">
+                    <t t-call="web.external_layout">
+                        <div class="container page shadow-lg table table-bordered" style="border: 16px solid rgb(211,211,211);">
+                            <div class="mb-3 pt-5 pb-5">
+                                <h1 style="color: red;text-align: center;font-weight:bold">شهادة صلاحية</h1>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p style="float:right;">
+                                        <strong>
+                                            <span t-out="cer.traffic_department.traffic_department"/>
+                                        </strong>
+                                        <strong>/ السيد اللواء مدير إدارة مرور</strong>
+                                    </p>
+                                </div>
+                                <div class="col-sm-6">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                </div>
+                                <div class="col-sm-6">
+                                    <p>
+                                        <span>تحريرا في</span>
+                                        <!--                                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>-->
+                                        <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <p style="text-align: center;" class="pt-3 pb-3">
+                                <strong>.... تحية طيبة وبعد</strong>
+                            </p>
+                            <div>
+                                <p class="mb-5" style="float:right;">
+                                    <span t-out="cer.certificate_type.certificate_type"/>
+                                    / أتشرف بإفادة سيادتكم بأنه تم تعديل
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="w-25 "></div>
+                                <div class="w-25 ">
+                                    <div class="row">
+                                        <div class="w-50">
+                                            <span t-out="cer.motor_number"/>
+                                        </div>
+                                        <div class="w-50">
+                                            <p style="float:right;">
+                                                / رقم المحرك
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-50">
+                                    <div class="row">
+                                        <div class="w-25"></div>
+                                        <div class="w-25">
+                                            <span style="float:right;" t-out="cer.chassis_number"/>
+                                        </div>
+                                        <div class="w-50 px-5">
+                                            <p style="float:right;">
+                                                / رقم الشاسيه
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="w-25"></div>
+                                <div class="w-25">
+                                    <div class="row">
+                                        <div class="w-50">
+                                            <span t-out="cer.car_model"/>
+                                        </div>
+                                        <div class="w-50">
+                                            <p style="float:right;">
+                                                / موديل
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-50">
+                                    <div class="row">
+                                        <div class="w-25"></div>
+                                        <div class="w-25">
+                                            <span style="float:right;" t-out="cer.brand.vehicle_brand"/>
+                                        </div>
+                                        <div class="w-50 px-5">
+                                            <p style="float:right;">
+                                                / الماركة
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="w-25"></div>
+                                <div class="w-25">
+                                    <div class="row">
+                                        <div class="w-50">
+                                            <span t-esc="dict(cer.fields_get(allfields=['vehicle_type'])['vehicle_type']['selection'])[cer.vehicle_type]"/>
+                                        </div>
+                                        <div class="w-50">
+                                            <p style="float:right;">
+                                                / نوع المركبة
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="w-50">
+                                    <div class="row">
+                                        <div class="w-25"></div>
+                                        <div class="w-25">
+                                            <span style="float:right;" t-out="cer.customer"/>
+                                        </div>
+                                        <div class="w-50 px-5">
+                                            <p style="float:right;">
+                                                / اسم المالك
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                <p style="text-align:right;" calss="px-5">حيث أن المؤسسة معتمدة بالهيئة العامة للتنمية الصناعية ومصلحة الرقابة الصناعية ومعتمدة بإدارات المرور ولها سجل تجاري صناعي</p>
+                                <p style="text-align:right;">وبطاقة ضريبية بهذه الصفة وقد تم فحص التعديل والتركيب واللحامات والاصلاحات اللازمة طبقا لأصول الصناعة ودون الإخلال بالتصميم</p>
+                                <p style="text-align:right;">الأصلي ودون المساس بالأجزاء الجوهرية للسيارة وقد تم تجربة السيارة علي الطرق المصرية ووجد أنها متزنة وهذه شهادة منا بذلك لتقديمها</p>
+                                <p style="text-align:right;">للمرور والمالك مسئول مسئوليه كاملة عن بيانات الشهادة فبرجاء التكرم والتفضل بالموافقة علي ترخيص السيارة</p>
+                            <div>
+                                <p style="text-align: center;" class="pt-3 pb-3">
+                                    <strong>....وتفضلوا بقبول فائق الإحترام والتقدير</strong>
+                                </p>
+                            </div>
+                        </div>
+                     </t>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

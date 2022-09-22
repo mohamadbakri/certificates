@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="certificates_brand_tree_view" model="ir.ui.view">
+            <field name="name">Certificates Brand Tree View</field>
+            <field name="model">certificates.brand</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="vehicle_brand" />
+                </tree>
+            </field>
+        </record>
+        <record id="certificates_brand_form_view" model="ir.ui.view">
+            <field name="name">Certificates Brand Form View</field>
+            <field name="model">certificates.brand</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="vehicle_brand" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="certificates_brand_action" model="ir.actions.act_window">
+            <field name="name">Vehicle Brand</field>
+            <field name="res_model">certificates.brand</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="certificates_brand_menu" name="Vehicle Brand" parent="certificates_certificate_root_menu" action="certificates_brand_action" groups="certificates.certificates_supervisors_group" />
+
+    </data>
+</odoo>

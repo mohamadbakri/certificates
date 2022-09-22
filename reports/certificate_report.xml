@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <record id="certificate_report_action" model="ir.actions.report">
+            <field name="name">Certificate Card</field>
+            <field name="model">certificates.certificate</field>
+            <field name="report_name">certificates.certificates_certificate_template</field>
+            <field name="binding_model_id" ref="model_certificates_certificate"/>
+        </record>
+    </data>
+</odoo>

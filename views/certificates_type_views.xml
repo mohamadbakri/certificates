@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="certificates_type_tree_view" model="ir.ui.view">
+            <field name="name">Certificates Type Tree View</field>
+            <field name="model">certificates.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="certificate_type"/>
+                </tree>
+            </field>
+        </record>
+        <record id="certificates_certificate_type_form_view" model="ir.ui.view">
+            <field name="name">Certificates Type Form View</field>
+            <field name="model">certificates.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="certificate_type"/>
+                            </group>
+                       </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="certificates_type_action" model="ir.actions.act_window">
+            <field name="name">Certificate Type</field>
+            <field name="res_model">certificates.type</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="certificates_type_menu" name="Certificate Types"
+                  parent="certificates_certificate_root_menu"   action="certificates_type_action"/>
+    </data>
+</odoo>

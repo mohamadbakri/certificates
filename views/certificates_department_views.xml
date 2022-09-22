@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+        <record id="certificates_department_tree_view" model="ir.ui.view">
+            <field name="name">Certificates Department Tree View</field>
+            <field name="model">certificates.department</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="traffic_department"/>
+                </tree>
+            </field>
+        </record>
+        <record id="certificates_department_form_view" model="ir.ui.view">
+            <field name="name">Certificates Department Form View</field>
+            <field name="model">certificates.department</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="traffic_department"/>
+                            </group>
+                       </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="certificates_department_action" model="ir.actions.act_window">
+            <field name="name">Traffic Department</field>
+            <field name="res_model">certificates.department</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="certificates_department_menu" name="Traffic Department"
+                  parent="certificates_certificate_root_menu"   action="certificates_department_action"/>
+    </data>
+</odoo>
